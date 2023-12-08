@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            height: 100vh;
+            background-color: rgb(254, 255, 255);
+
+        }
+        .main{
+           width: 500px; 
+          padding: 20px;
+          text-align: center;
+                      background-image: linear-gradient(45deg, rgb(235, 250, 96), rgb(250, 11, 194) );
+           border-radius: 5px;
+           box-shadow: 0px 2px 2px 2px gray ;
+        }
+        #pass,#wihg1{
+            width: 80%;
+            margin-top: 40px;
+            outline: none;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgb(244, 230, 212);
+            font-weight: bold;
+        }
+        #cal,#cal1{
+            /* width: 60%; */
+            margin-top: 20px;
+            margin-left: 10px;
+            outline: none;
+            border: none;
+            padding: 10px;
+            font-weight: bold; 
+            font-size: 15px;
+            border-radius: 5px;
+            background-image: linear-gradient(365deg, rgb(5, 129, 164), rgb(60, 163, 5) );
+            color: white;
+            box-shadow: 0px 1px 1px 1px gray ;
+
+        }
+                #cal1:hover{
+                 background-image: linear-gradient(45deg, rgb(96, 27, 65), rgb(47, 111, 122) );   
+                }
+                #cal:hover{
+                 background-image: linear-gradient(45deg, rgb(96, 27, 65), rgb(47, 111, 122) );   
+                }
+        /* #vp,#vp1{
+            padding: 5px;
+            background-color: rgb(177, 215, 248);
+        } */
+        h3{
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <h3>Random Password & OTP Generate</h3> <hr>
+            <input type="text" id="pass"> 
+        </div>
+        
+        <br><br>
+        
+        <button id="cal" onclick="getpass()">Generate Password</button>
+        <button id="cal" onclick="otp()">Generate otp</button>
+        <button id="cal1" onclick="copypass()">Copy Password</button><br><br><br><br>
+
+    </div>
+    <script>
+    let Password = document.getElementById("pass");
+
+    function getpass(){
+        
+        let char="ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890/!@#$%^&*()";
+        let passlenth=12;
+        let Password="";
+        for(i=0; i<=passlenth;i++){
+            let random = Math.floor(Math.random()*char.length);
+            Password +=char.substring(random,random+1);
+           
+        }
+        document.getElementById("pass").value=Password;
+    }
+    function otp(){
+        
+        let char="1234567890";
+        let passlenth=6;
+        let Password="";
+        for(i=0; i<passlenth;i++){
+            let random = Math.floor(Math.random()*char.length);
+            Password +=char.substring(random,random+1);
+           
+        }
+        document.getElementById("pass").value=Password;
+    }
+    function copypass(){
+        Password.select();
+        document.execCommand("copy")
+    }
+    </script>
+</body>
+</html>
